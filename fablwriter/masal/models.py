@@ -2,8 +2,6 @@ from django.db import models
 
 class Fabl(models.Model):
     baslik = models.CharField(max_length=100)
-    yazar = models.CharField(max_length=100)
-    tarih = models.DateField()
 
     def __str__(self):
         return self.baslik
