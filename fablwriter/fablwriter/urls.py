@@ -18,7 +18,8 @@ from django.urls import path
 from masal import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('fabl/insanvehayvan', views.insanvehayvan, name='insanvehayvan')
+    path('admin/', admin.site.urls),
+    path('fabl/create', views.fabl_create, name='create'),
+    path('fabl/publish/<int:id>/', views.fabl_publish, name='publish'),
 ]
