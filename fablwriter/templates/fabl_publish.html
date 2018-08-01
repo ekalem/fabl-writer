@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>{{ title }}</title>
-  </head>
-  <body>
+{% extends "base.html" %}
+{% block title %}{{ fabl.baslik }}{% endblock %}
+{% block content %}
     <a href="{% url 'home' %}">HOME</a><br/><br/>
     {% for i in 'BGSDC' %}
       {% for sahne in sahnes %}
@@ -13,5 +9,7 @@
         {% endif %}
       {% endfor %}
     {% endfor %}
-  </body>
-</html>
+    User: {{ fabl.user }}<br/>
+    Update : {{ fabl.update_date.date }}<br/>
+    Create : {{ fabl.create_date.date }}
+{% endblock %}
