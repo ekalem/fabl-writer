@@ -15,15 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from masal import views 
+from masal import views as masal_views
+from accounts import views as accounts_views
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', masal_views.home, name='home'),
     path('admin/', admin.site.urls),
-    path('fabl/create', views.fabl_create, name='create'),
-    path('fabl/publish/<int:id>/', views.fabl_publish, name='publish'),
-    path('about/', views.about, name='about'),
-    path('login/', views.login, name='login'),
-    path('profile/', views.profile, name='profile'),
-    path('signup/', views.signup, name='signup'),
+    path('fabl/create', masal_views.fabl_create, name='create'),
+    path('fabl/publish/<int:id>/', masal_views.fabl_publish, name='publish'),
+    path('accounts/',include('django.contrib.auth.urls')),
+    path('about/', accounts_views.about, name='about'),
+    path('registration/login/', accounts_views.login, name='login'),
+    path('accounts/profile/', accounts_views.profile, name='profile'),
+    path('registration/signup/', accounts_views.signup, name='signup'),
 ]
