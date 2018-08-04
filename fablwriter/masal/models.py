@@ -22,6 +22,7 @@ class Fabl(models.Model):
         null=True,
         on_delete=models.CASCADE,
     )
+    # user silindiği zaman user'ın girdiği fabl vb. içeriklerin de silinmesi için on_delete CASCADE yapılır.
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
 

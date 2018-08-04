@@ -20,11 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'c+24t6za$)(l^n1u0kj_*yo25o6h4$0d5ty%&b^6d!fa(3_1!g'
+# Yukarıdaki secret key vb. özel bilgiler gitmemesi için bir de local_settings.py oluşturulup, settings.py
+# ignore listesine eklenmeli.
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True # Hata mesajlarını göstermesi için TRUE yapılır. FALSE yapınca kapanır.
 
 ALLOWED_HOSTS = []
+# Sitenin yayınlanacağı sunucunun IP adresi.
 
 
 # Application definition
@@ -38,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'masal',
     'accounts',
-]
+]# Oluşturulan app ler yani uygulamalar buraya eklenir.
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -48,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Buraya eklenecek özel bir kod ile sitenin arayüz dili tarayıcının dili ile aynı yapılabiliyor.
 ]
 
 ROOT_URLCONF = 'fablwriter.urls'
@@ -58,6 +62,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
         ],
+        # Burada da template yani şablon dosyalarımızın hangi klasörde tutulduğunu belirtiriz ( templates)
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,9 +116,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
+# Burada da en-us yerine tr-tr yazınca arayüz Türkçe olur.
 TIME_ZONE = 'UTC'
-
+# Burada da UTC yerine Europe/Istanbul yaparak Türkiye saat dilimi yapılabilir.
 USE_I18N = True
 
 USE_L10N = True
@@ -125,5 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+# Bu static klasörü de CSS veya görseller gibi sabit dosyalarımızı koyacağımız klasörün yeri
+# templates klasörünün yanına oluşturulabilir.
 
 LOGOUT_REDIRECT_URL = '/'
