@@ -31,7 +31,7 @@ class Fabl(models.Model):
 class Baglam(models.Model):
     anahtar = models.CharField(max_length=100)
     deger = models.CharField(max_length=100)
-    fabl_id = models.ForeignKey(Fabl, on_delete=models.CASCADE)
+    fabl_id = models.ForeignKey(Fabl, on_delete=models.CASCADE, default='1')
 
     def __str__(self):
         return self.fabl_id.baslik+" -- "+self.anahtar+" --> "+self.deger
